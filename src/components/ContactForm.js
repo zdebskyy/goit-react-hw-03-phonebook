@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 import InputForm from "./InputForm";
+import PropTypes from "prop-types";
 
 export default class ContactForm extends Component {
   state = {
     name: "",
     number: "",
   };
+  static propTypes = {
+    allContacts: PropTypes.array.isRequired,
+    onAddContact: PropTypes.func.isRequired,
+  };
+
   handleInput = (value) => {
     this.setState({ name: value });
   };

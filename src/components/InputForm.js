@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 function InputForm({ label, placeholder, type, value, onInput }) {
   return (
     <>
@@ -15,5 +17,13 @@ function InputForm({ label, placeholder, type, value, onInput }) {
     </>
   );
 }
+
+InputForm.propTypes = {
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onInput: PropTypes.func.isRequired,
+};
 
 export default InputForm;
