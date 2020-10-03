@@ -10,6 +10,20 @@ export default class App extends Component {
     contacts: [],
     filter: "",
   };
+  componentDidMount() {
+    const lsContacts = localStorage.getItem("contacts");
+
+    if (lsContacts) {
+      this.setState({
+        contacts: JSON.parse(lsContacts),
+      });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+    }
+  }
   changeFilter = (filter) => {
     this.setState({ filter });
   };
